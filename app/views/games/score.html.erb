@@ -1,0 +1,14 @@
+<h1>Result</h1>
+
+<h3><%= @user_word.upcase %></h3>
+
+<% if @return == 1 %>
+<p>Sorry but this Word does not exist.</p>
+<% elsif @return == 2 %>
+<p>Congratulations! <%= @user_word.capitalize %> is a valid English word!</p>
+<p>Score: <%= @response['length'] * 10 %>pts.</p>
+<% elsif @return == 0 %>
+<p>"Sorry but <%= @user_word.upcase %> can't be build out of <%= @session.join(", ") %></p>
+<% end %>
+
+<%= link_to "Play again", new_path %>
